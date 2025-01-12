@@ -4,7 +4,7 @@
 YOLOv8-Apple is an improved YOLOv8 model designed to effectively detect small-scale apples and handle severe occlusions.
 
 ## Frame Structure
-![Apple Detection Example](structure.png "Apple Detection Example")
+<img src="structure.png" alt="Apple Detection Example" title="Apple Detection Example" width="400">
 ---
 
 ## Evaluation

@@ -68,18 +68,16 @@ Below are the detection and counting results under different improvement configu
 
 ## Pretrained Model
 
-You can download the pretrained weights at [yolov8-apple.pt](https://drive.google.com/file/d/10qP2b4g4UT-748k4UHBdf1XS_CPb2A6Y/view?usp=drive_link)
+You can download the pretrained weights at [yolov8-apple.pt](https://drive.google.com/file/d/10qP2b4g4UT-748k4UHBdf1XS_CPb2A6Y/view?usp=drive_link).
+
+---
 
 ### Train
-Train your model on MinneApple
-   ```bash
-   python train.py
----
 
-### Test
-   ```bash
-   python test_counting.py
----
+Train your model on MinneApple:
+
+```bash
+python train.py
 
 
 

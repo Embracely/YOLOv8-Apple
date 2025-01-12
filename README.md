@@ -72,13 +72,11 @@ You can download the pretrained weights at [yolov8-apple.pt](https://drive.googl
 
 ---
 
-### Train
+### Training
 
 Train your model on MinneApple:
 
 ```bash
 python train.py
 
-
-
-
+### Test

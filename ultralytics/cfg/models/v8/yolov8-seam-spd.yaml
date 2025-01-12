@@ -1,0 +1,64 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# YOLOv8 object detection model integrating SPD-conv and SEAM
+
+# Parameters
+nc: 1  # number of classes, 您可自行修改
+scales:
+  n: [0.33, 0.25, 1024]
+  s: [0.33, 0.50, 1024]
+  m: [0.67, 0.75, 768]
+  l: [1.00, 1.00, 512]
+  x: [1.00, 1.25, 512]
+
+# YOLOv8.0n backbone with SPD-conv
+backbone:
+  # [from, repeats, module, args]
+  - [-1, 1, Conv, [64, 3, 1]]    # 0-P1/2
+  - [-1, 1, Conv, [128, 3, 1]]   # 1-P2/4
+  - [-1, 1, space_to_depth, [1]] # 2 - SPD操作(不改变尺寸，但保持一致性)
+  - [-1, 3, C2f, [128, True]]
+  - [-1, 1, Conv, [256, 3, 1]]   # 4-P3/8
+  - [-1, 1, space_to_depth, [1]]
+  - [-1, 6, C2fRFEM, [256, True]]
+  - [-1, 1, Conv, [512, 3, 1]]   # 7-P4/16
+  - [-1, 1, space_to_depth, [1]]
+  - [-1, 6, C2fRFEM, [512, True]]
+  - [-1, 1, Conv, [1024, 3, 1]]  # 10-P5/32
+  - [-1, 1, space_to_depth, [1]]
+  - [-1, 3, C2fRFEM, [1024, True]]
+  - [-1, 1, SPPF, [1024, 5]]     # 13
+
+# YOLOv8.0n head with SPD-conv and then integrating SEAM
+head:
+  # 上采样融合P4特征
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 8], 1, Concat, [1]]   # cat backbone P4 (layer 8输出)
+  - [-1, 3, C2f, [512]]          # 16
+
+  # 上采样融合P3特征
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 5], 1, Concat, [1]]   # cat backbone P3 (layer 5输出)
+  - [-1, 3, C2f, [256]]          # 19 (P3/8-small)
+
+  # 回接至P4尺度
+  - [-1, 1, Conv, [256, 3, 1]]
+  - [-1, 1, space_to_depth, [1]]
+  - [[-1, 16], 1, Concat, [1]]  # cat head P4
+  - [-1, 3, C2f, [512]]          # 23 (P4/16-medium)
+
+  # 回接至P5尺度
+  - [-1, 1, Conv, [512, 3, 1]]
+  - [-1, 1, space_to_depth, [1]]
+  - [[-1, 13], 1, Concat, [1]]  # cat head P5
+  - [-1, 3, C2f, [1024]]         # 27 (P5/32-large)
+
+  # 在最终P3、P4、P5特征图上应用SEAM
+  # P3 -> layer 19输出通道256
+  - [19, 1, SEAM, [256,1,16]]    # 28
+  # P4 -> layer 23输出通道512
+  - [23, 1, SEAM, [512,1,16]]    # 29
+  # P5 -> layer 27输出通道1024
+  - [27, 1, SEAM, [1024,1,16]]   # 30
+
+  # Detect层从SEAM后的三个特征图输入
+  - [[28, 29, 30], 1, Detect, [nc]]  # Detect(P3, P4, P5)

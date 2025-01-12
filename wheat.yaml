@@ -1,0 +1,6 @@
+train: E:\UOB\MV\project\ultralytics-main/data/train.txt
+val: E:\UOB\MV\project\ultralytics-main/data/val.txt
+test: E:\UOB\MV\project\ultralytics-main/data/test.txt
+
+nc: 1 # 如果只有苹果一种类
+names: ["apple"]

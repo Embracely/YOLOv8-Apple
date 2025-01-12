@@ -66,8 +66,21 @@ Below are the detection and counting results under different improvement configu
    python mask2yolo.py
 ---
 
-### Pretrained Model
+## Pretrained Model
 
-You can download the pretrained weights by clicking the link below and renaming the file to [yolov8-apple.pt](https://drive.google.com/file/d/10qP2b4g4UT-748k4UHBdf1XS_CPb2A6Y/view?usp=drive_link)
+You can download the pretrained weights at [yolov8-apple.pt](https://drive.google.com/file/d/10qP2b4g4UT-748k4UHBdf1XS_CPb2A6Y/view?usp=drive_link)
+
+### Train
+Train your model on MinneApple
+   ```bash
+   python train.py
+
+### Test
+Train your model on MinneApple
+   ```bash
+   python test_counting.py
+
+
+
 
 

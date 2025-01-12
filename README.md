@@ -78,5 +78,9 @@ Train your model on MinneApple:
 
 ```bash
 python train.py
+```
 
 ### Test
+```bash
+python test_counting.py
+```

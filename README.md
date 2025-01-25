@@ -1,7 +1,7 @@
 # YOLOv8-Apple
 
 ## Introduction
-YOLOv8-Apple is an improved YOLOv8 model designed to effectively detect small-scale apples and handle severe occlusions.
+YOLOv8-Apple is an improved YOLOv8 model designed to effectively detect small-scale apples and handle severe occlusions. A backbone network was constructed by replacing traditional stride convolutions and pooling layers with SPD-Conv to minimize the loss of fine-grained information, using SEAM to enhance feature representations of unoccluded regions and compensate for occluded ones at the neck, and integrating a lightweight CBAM attention mechanism to strengthen the representation capability of small targets. The results of comprehensive experiments on the MinneApple dataset demonstrate that the mAP of YOLOv8-Apple increases by 3.8%, and MAE and RMSE of counting tasks decrease by 11.8% and 28.8%, respectively.
 
 ## Frame Structure
 <img src="structure.png" alt="Apple Detection Example" title="YOLOv8-Apple Structure" width="800">

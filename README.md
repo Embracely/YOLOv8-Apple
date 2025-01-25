@@ -54,8 +54,6 @@ Below are the detection and counting results under different improvement configu
 
 1. **Download the [MinneApple Dataset](https://conservancy.umn.edu/items/e1bb4015-e92a-4295-822c-d21d277ecfbd) into data folder**  
     
-   Then, convert it to YOLO format.
-
 2. **Convert the dataset’s mask tags YOLO annotation files**
    ```bash
    python mask2yolo.py
@@ -71,13 +69,12 @@ You can download the pretrained weights at [yolov8-apple.pt](https://drive.googl
 
 ### Data Preparation
 
-Split the data set
+1. Split the data set
 
 ```bash
 python split_dataset.py
 ```
-
-Converting the format of data set
+2. Converting the format of data set
 
 ```bash
 python voc_label.py
@@ -89,7 +86,7 @@ python voc_label.py
 python train.py
 ```
 
-### Test
+## Test
 ```bash
 python test_counting.py
 ```

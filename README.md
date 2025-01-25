@@ -67,7 +67,7 @@ You can download the pretrained weights at [yolov8-apple.pt](https://drive.googl
 
 ## Training
 
-### Data Preparation
+### Data Pre-processing
 
 1. Split the data set
 

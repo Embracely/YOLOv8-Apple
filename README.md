@@ -52,15 +52,11 @@ Below are the detection and counting results under different improvement configu
 
 ### Dataset
 
-1. **Download the [MinneApple Dataset](https://conservancy.umn.edu/items/e1bb4015-e92a-4295-822c-d21d277ecfbd)**  
+1. **Download the [MinneApple Dataset](https://conservancy.umn.edu/items/e1bb4015-e92a-4295-822c-d21d277ecfbd) into data folder**  
     
    Then, convert it to YOLO format.
 
-2. **Convert the dataset’s mask tags into binary form**  
-   ```bash
-   python binary.py
-
-3. **Generate YOLO annotation files**
+2. **Convert the dataset’s mask tags YOLO annotation files**
    ```bash
    python mask2yolo.py
 ---
@@ -71,9 +67,23 @@ You can download the pretrained weights at [yolov8-apple.pt](https://drive.googl
 
 ---
 
-### Training
+## Training
 
-Train your model on MinneApple:
+### Data Preparation
+
+Split the data set
+
+```bash
+python split_dataset.py
+```
+
+Converting the format of data set
+
+```bash
+python voc_label.py
+```
+
+### Train your model on MinneApple:
 
 ```bash
 python train.py

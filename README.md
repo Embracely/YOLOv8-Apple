@@ -24,7 +24,6 @@ Below are the detection and counting results under different improvement configu
 | ✔        |      | ✔    | 0.764  | 0.717    | 0.766     | 0.673  | 2.95 | 9.29  |
 | ✔        | ✔    | ✔    | 0.763  | 0.726    | 0.768     | 0.688  | 2.62 | 9.45  |
 
----
 
 ## Environmental Requirements
 

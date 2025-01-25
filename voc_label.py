@@ -12,20 +12,20 @@ abs_path = os.getcwd()
 print(abs_path)
 
 # 确保data/labels目录存在
-if not os.path.exists('data/labels'):
-    os.makedirs('data/labels')
+if not os.path.exists('data/detection/train/labels'):
+    os.makedirs('data/detection/train/labels')
 
 # 根目录（含有标签txt文件的目录）
-src_label_dir = r"E:\UOB\MV\project\ultralytics-main\my_data\detection\train\labels"
+src_label_dir = r"data\detection\train\labels"
 
 for image_set in sets:
-    image_ids = open('data/ImageSets/%s.txt' % (image_set)).read().strip().split()
-    list_file = open('data/%s.txt' % (image_set), 'w')
+    image_ids = open('data/detection/train/ImageSets/%s.txt' % (image_set)).read().strip().split()
+    list_file = open('data/detection/train/%s.txt' % (image_set), 'w')
     for image_id in image_ids:
         # 源标签文件路径
         src_label_path = os.path.join(src_label_dir, image_id + ".txt")
         # 目标标签文件路径
-        dst_label_path = os.path.join('data/labels', image_id + ".txt")
+        dst_label_path = os.path.join('data/detection/train/labels', image_id + ".txt")
         
         # 将标签文件复制到指定目录
         if os.path.exists(src_label_path):
@@ -35,7 +35,5 @@ for image_set in sets:
             print(f"Warning: Label file not found for {image_id}")
 
         # 写入对应的数据集txt文件记录图片的绝对路径
-        list_file.write(abs_path + '/data/images/%s.jpg\n' % (image_id))
+        list_file.write(abs_path + '/data/detection/train/images/%s.jpg\n' % (image_id))
     list_file.close()
-
-print("完成标签文件复制及数据集txt文件生成。")

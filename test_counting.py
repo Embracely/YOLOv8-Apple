@@ -3,8 +3,8 @@ from ultralytics import YOLO
 import math
 
 # 配置路径（请根据实际情况修改）
-model_path = r'E:\UOB\MV\project\ultralytics-main\runs\detect\train-cbam-seam\weights\best.pt' 
-data_dir = r"E:\UOB\MV\project\ultralytics-main\my_data\counting\train"
+model_path = r'runs\detect\train1\weights\best.pt' 
+data_dir = r"data\counting\train"
 images_dir = os.path.join(data_dir, "images")
 ground_truth_file = os.path.join(data_dir, "train_ground_truth.txt")
 

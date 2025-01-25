@@ -79,7 +79,7 @@ python split_dataset.py
 python voc_label.py
 ```
 
-### Train your model on MinneApple:
+### Train your model on MinneApple
 
 ```bash
 python train.py

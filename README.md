@@ -5,7 +5,7 @@ YOLOv8-Apple is an improved YOLOv8 model designed to effectively detect small-sc
 
 ## Frame Structure
 <img src="structure.png" alt="Apple Detection Example" title="YOLOv8-Apple Structure" width="800">
----
+
 
 ## Evaluation
 

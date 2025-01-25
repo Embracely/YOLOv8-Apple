@@ -6,7 +6,7 @@ from ultralytics import YOLO
  
 if __name__ == '__main__':
     model = YOLO('yolov8-apple.pt')  # 从YAML建立一个新模型，可在同一路径下更换带训练模型的yaml文件
-    model.train(data=r'E:\UOB\MV\project\ultralytics-main\wheat.yaml',
+    model.train(data='wheat.yaml',
                 cache=False,
                 imgsz=640,
                 epochs=300,

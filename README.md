@@ -51,7 +51,7 @@ Below are the detection and counting results under different improvement configu
 
 ### Dataset
 
-1. **Download the [MinneApple Dataset](https://conservancy.umn.edu/items/e1bb4015-e92a-4295-822c-d21d277ecfbd) into data folder**  
+1. **Download the [MinneApple Dataset](https://conservancy.umn.edu/items/e1bb4015-e92a-4295-822c-d21d277ecfbd) into the data folder**  
     
 2. **Convert the dataset’s mask tags YOLO annotation files**
    ```bash

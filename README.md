@@ -29,7 +29,7 @@ Below are the detection and counting results under different improvement configu
 
 1. **Create a Python Virtual Environment**  
    ```bash
-   conda create -n {name} python=x.x
+   conda create -n {name} python=3.8
 
 2. **Activate the Virtual Environment
    ```bash
